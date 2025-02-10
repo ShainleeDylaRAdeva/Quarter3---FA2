@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="CS3FA2/styles.css">
+</head>
+<body>
+
+    <h1>calcU</h1>
+    <p>This page is.....</p>
+
+    <input type="text" id="num1" placeholder="Num 1">
+    <input type="text" id="num2" placeholder="Num 2"><br>
+
+    <button onclick="calculate('+')">+</button>
+    <button onclick="calculate('-')">-</button>
+    <button onclick="calculate('*')">*</button>
+    <button onclick="calculate('/')">/</button>
+    <button onclick="calculate('%')">%</button>
+
+    <p id="result">Results will be displayed here.</p>
+
+    <script>
+      function calculate(operation) {
+          const num1 = parseFloat(document.getElementById('num1').value);
+          const num2 = parseFloat(document.getElementById('num2').value);
+          let result;
+
+            
+          if (operation === '+') {
+            result = num1 + num2;
+            document.getElementById('result').innerText = `The sum of ${num1} and ${num2} is ${result}.`;
+          } else if (operation === '-') {
+            result = num1 - num2;
+            document.getElementById('result').innerText = `The difference of ${num1} and ${num2} is ${result}.`;
+          } else if (operation === '*') {
+            result = num1 * num2;
+            document.getElementById('result').innerText = `The product of ${num1} and ${num2} is ${result}.`;
+          } else if (operation === '/') {
+            if (num2 !== 0) {
+              result = num1 / num2;
+              document.getElementById('result').innerText = `The quotient of ${num1} and ${num2} is ${result}.`;
+            } else {
+              document.getElementById('result').innerText = "Error: Division by zero is not allowed.";
+            }
+          } else if (operation === '%') {
+            result = num1 % num2;
+            document.getElementById('result').innerText = `The remainder of ${num1} divided by ${num2} is ${result}.`;
+          } else {
+            document.getElementById('result').innerText = "The operation's invalid.";
+          }
+      }
+    </script>
+        
+</body>
+</html>
